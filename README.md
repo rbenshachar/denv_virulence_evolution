@@ -10,7 +10,7 @@ To load data and set frequently used parameters:
 ```
 find_viremia_data()
 find_low_viremia_data()
-'''
+```
 
 Code to run models and calculate confidence intervals: 
 Main model fit to full dataset:
