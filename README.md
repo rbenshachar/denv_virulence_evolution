@@ -6,6 +6,36 @@ Viral load data can be downloaded from the supplemental data from Clapham et al 
 Code for formatting data and setting parameters: 
 ```python -m format data```
 
-Code to run models and calculate confidence intervals: 
+To load data and set frequently used parameters: 
+```
+find_viremia_data()
+find_low_viremia_data()
+'''
 
-Code to reproduce figures in the paper: 
+Code to run models and calculate confidence intervals: 
+Main model fit to full dataset:
+```
+MLE_DENV_evolution_full()
+CI = calculate_confidence_intervals(1); 
+```
+
+Main model fit to data subset:
+```
+MLE_DENV_evolution_subset_data()
+CI = calculate_confidence_intervals(2); 
+```
+
+Innate immune response model fit to data subset (both primary and secondary infections cleared by the innate immune response): 
+```
+MLE_DENV_evolution_subset_data_innate()
+CI = calculate_confidence_intervals(4); 
+```
+
+Alternative T-cell model fit to data subset:
+```
+MLE_DENV_evolution_subset_data_alt_T()
+CI_a_1e6 = calculate_confidence_intervals(4); 
+CI_a_1e7 = calculate_confidence_intervals(5);
+```
+
+Code to reproduce figures in the paper:
