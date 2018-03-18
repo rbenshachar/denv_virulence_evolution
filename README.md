@@ -39,3 +39,8 @@ CI_a_1e7 = calculate_confidence_intervals(5);
 ```
 
 Code to reproduce figures in the paper:
+Fig. 1: ```[p1, a1, p2, a2] = plot_viral_peak_clearance(1) ```, where p1 and p2 are p-values and a1 and a2 are slope values for linear regression fits to primary and secondary infection data, respectively
+(To reproduce alternative method to determine viral clearance described in methods: ```[p1, a1, p2, a2] = plot_viral_peak_clearance(2) ```
+Fig. 2:
+Fig. 3:
+Fig. 4: 
