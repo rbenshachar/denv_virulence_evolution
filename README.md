@@ -46,5 +46,25 @@ Fig. 1: ```[p1, a1, p2, a2] = plot_viral_peak_clearance(1) ```, where p1 and p2 
 
 Fig. 2: ```[p1, r1, p2, r2, p3, r3, p4, r4] = plot_viral_peak_clearance_simulations(1000)```
 These simulations are stochastic. The parameters for the figure in the paper are stored in ```fig2_params.mat```
+
 Fig. 3: ```plot_virulence_fitness_tradeoff_subset(1)```
+
 Fig. 4: ```main_plot_figure4```
+
+Supplemental Figures: 
+
+Fig. S1: ```plot_model_dynamics_subset()```
+
+Fig. S2: ```plot_viral_load_dynamics()```
+
+Fig. S3: ``` plot_model_dynamics_innate()```
+
+Fig. S4: ```plot_virulence_fitness_tradeoff_subset_innate(1)```
+
+Fig. S5: ```plot_virulence_fitness_tradeoff_alt_T()```
+
+Fig. S6:  ```plot_virulence_fitness_tradeoff_full(1)```
+
+Fig. S7: ```plot_Nguyen_fit()```
+
+Fig. S8:  ```plot_virulence_fitness_tradeoff_subset_mosquito()```
