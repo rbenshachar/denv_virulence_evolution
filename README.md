@@ -4,7 +4,7 @@ Code to reproduce analysis and figures from  "Transmission-clearance trade-offs 
 Viral load data can be downloaded from the supplemental data from Clapham et al (2014) J. R. Soc. Interface. 
 
 Code for formatting data and setting parameters: 
-```python -m format data"""
+```python -m format data```
 
 Code to run models and calculate confidence intervals: 
 
