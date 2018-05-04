@@ -17,7 +17,6 @@ DV_beta1 = log(DV_OR); % since OR = exp(beta1)
 DV_beta0 = -DV_beta1*DV_logV_at_p50percent;
 
 final_params = [DV_beta0, DV_beta1];
-data = M; 
 
 end
 
