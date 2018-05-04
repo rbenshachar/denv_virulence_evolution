@@ -9,13 +9,13 @@ max_V = TP;
 duration = TP;  
 
 if s == 1
-    [final_params, ~] = fit_DENV_viral_load(1);  
+    final_params = fit_DENV_viral_load(1);  
 elseif s == 2
-    [final_params, ~] = fit_DENV_viral_load(2); 
+    final_params = fit_DENV_viral_load(2); 
 elseif s ==3 
-    [final_params, ~] = fit_DENV_viral_load(3); 
+    final_params = fit_DENV_viral_load(3); 
 elseif s == 4
-    [final_params, ~] = fit_DENV_viral_load(4);
+    final_params = fit_DENV_viral_load(4);
 end
 
 p_hm = 1; 
