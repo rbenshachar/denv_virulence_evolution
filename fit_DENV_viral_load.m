@@ -1,4 +1,4 @@
-function [final_params, data] = fit_DENV_viral_load(k)
+function final_params = fit_DENV_viral_load(k)
 
 % logistic regression parameteres are from 
 % Nguyen et al (2013) PNAS
