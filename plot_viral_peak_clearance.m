@@ -2,7 +2,7 @@ function [p1, a1, p2, a2] = plot_viral_peak_clearance(method)
 
 %%FIGURE 1
 
-%% method=1 1: viral clearance is measured as max viral clearance (Fig. 1)
+%% method= 1: viral clearance is measured as max viral clearance (Fig. 1)
 %% method= 2: fitting slope of viral clearance (additional method mentioned 
 %% in Methods) 
 
