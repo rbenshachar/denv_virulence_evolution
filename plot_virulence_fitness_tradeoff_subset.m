@@ -4,7 +4,7 @@ function plot_virulence_fitness_tradeoff_subset(s)
 %FIGURE 3
 
 % s is serotype 
-% plotting R0 as a function of peak V for primary and secondary
+% plotting R0 as a function of peak V for primary and secondary infections
 
 close all;
 
