@@ -29,7 +29,7 @@ CI = calculate_confidence_intervals(2);
 Innate immune response model fit to data subset (both primary and secondary infections cleared by the innate immune response): 
 ```
 MLE_DENV_evolution_subset_data_innate()
-CI = calculate_confidence_intervals(4); 
+CI = calculate_confidence_intervals(3); 
 ```
 
 Alternative T-cell model fit to data subset:
