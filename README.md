@@ -43,7 +43,7 @@ Code to reproduce figures in the paper:
 
 Fig. 1: ```[p1, a1, p2, a2] = plot_viral_peak_clearance(1) ```, where p1 and p2 are p-values and a1 and a2 are slope values for linear regression fits to primary and secondary infection data, respectively
 
-(To reproduce alternative method to determine viral clearance described in methods: ```[p1, a1, p2, a2] = plot_viral_peak_clearance(2) ```
+To reproduce alternative method to determine viral clearance described in methods: ```[p1, a1, p2, a2] = plot_viral_peak_clearance(2) ```
 
 Fig. 2: ```[p1, r1, p2, r2, p3, r3, p4, r4] = plot_viral_peak_clearance_simulations(1000)```
 These simulations are stochastic. The parameters for the figure in the paper are stored in ```fig2_params.mat```
