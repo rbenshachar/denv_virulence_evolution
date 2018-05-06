@@ -3,8 +3,9 @@ function plot_virulence_fitness_tradeoff_subset(s)
 %%%%%%%%%%%%%%%%%
 %FIGURE 3
 
-% s is serotype 
-% plotting R0 as a function of peak V for primary and secondary infections
+% s is serotype (assume in fig. DENV-1 so s = 1)
+% plotting TP (transmission potential)
+% as a function of peak V for primary and secondary
 
 close all;
 
@@ -32,7 +33,7 @@ params.beta_SI = param_estimates(3)*f;
 params.sd_PI = params.beta_PI*params.cv; 
 params.sd_SI = params.beta_SI*params.cv; 
 
-phenotype = 1e4*(.01:.02:4); %1e4*(.01:.02:10);
+phenotype = 1e4*(.01:.02:4); 
 
 TP_PI = zeros(k, length(phenotype)); 
 disease_PI = zeros(k,length(phenotype));
@@ -141,7 +142,7 @@ y = disease_PI';
 disease_PI_vec = y(:)';
 disease_PI_vec = round(disease_PI_vec./z).*z; %round(disease_PI_vec/0.05)*0.05; 
 
-y = R0_PI';
+y = TP_PI';
 TP_PI_vec = y(:)';
 
 [disease_PI_vec, index] = sort(disease_PI_vec); 
@@ -207,5 +208,3 @@ plot(peakV_SI, peakV_TP_SI(2,:), 'k', 'LineWidth', 2);
 text(0.9,0.95,'(c)','Units', 'Normalized', 'VerticalAlignment', 'Top', 'FontSize', 14)
 xlabel('peak viral load (log copies/ml)'); ylabel('transmission potential')
 set(gca, 'FontSize', 14)
-
-
