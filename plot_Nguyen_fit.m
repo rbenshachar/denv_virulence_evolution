@@ -6,7 +6,7 @@ close all;
 
 colors = colormap(cbrewer('qual', 'Dark2', 5));
 
-[final_params_1, ~] = fit_DENV_viral_load(1);
+final_params_1 = fit_DENV_viral_load(1);
 
 V = -2:.1:12; 
 
@@ -15,20 +15,20 @@ sigma = final_params_1(2);
 
 q_1 =  1./(1 + exp(-sigma.*V - mu));
  
-[final_params_2, ~] = fit_DENV_viral_load(2);
+final_params_2 = fit_DENV_viral_load(2);
 mu = final_params_2(1); 
 sigma =  final_params_2(2); 
 
 q_2 =  1./(1 + exp(-sigma.*V - mu));
 
-[final_params_3, ~] = fit_DENV_viral_load(3);
+final_params_3 = fit_DENV_viral_load(3);
 
 mu = final_params_3(1); 
 sigma = final_params_3(2); 
 
 q_3 =  1./(1 + exp(-sigma.*V - mu));
 
-[final_params_4, ~] = fit_DENV_viral_load(4);
+final_params_4 = fit_DENV_viral_load(4);
 
 mu = final_params_4(1);
 sigma = final_params_4(2);
