@@ -39,6 +39,12 @@ CI_a_1e6 = calculate_confidence_intervals(4);
 CI_a_1e7 = calculate_confidence_intervals(5);
 ```
 
+Epidemiological simulations and pairwise invasibility code is here:
+```
+main_generate_endemic_contexts()
+main_generate_invasion_matrix(void)
+```
+
 Code to reproduce figures in the paper:
 
 Fig. 1: ```[p1, a1, p2, a2] = plot_viral_peak_clearance(1) ```, where p1 and p2 are p-values and a1 and a2 are slope values for linear regression fits to primary and secondary infection data, respectively
