@@ -1,4 +1,4 @@
-function R0 = plot_virulence_fitness_tradeoff_full(s)
+function plot_virulence_fitness_tradeoff_full(s)
 % 
 %Supplementary figure 6
 % s is serotype 
