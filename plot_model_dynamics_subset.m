@@ -16,7 +16,6 @@ factor = (param_estimates(1) + param_estimates(4))/param_estimates(1);
 params.cv =param_estimates(5); 
 
 load('param_estimates_low.mat');
-params.d = 0;
 params.q_PI =  param_estimates(1);  
 params.qT = param_estimates(2); 
 params.beta_PI = param_estimates(3); 
@@ -36,18 +35,13 @@ params.beta = params.beta_PI;
 
 [T_PI, Y_PI] = ode45(@(t,y)PI(t, y, params),params.time_start:.01:params.time_end, [params.Xinit  params.Yinit params.Vinit params.Ninit]);  
 V = log10(Y_PI(:,3));
-max(V)
-temp = find(V == max(V)); 
-V(temp(1) + 202) - V(temp(1)+ 303)
 
 params.beta = params.beta_PI - 2*params.cv*params.beta_PI;
 
-[T2_PI, Y2_PI] = ode45(@(t,y)PI(t, y, params),params.time_start:.01:params.time_end, [params.Xinit  params.Yinit params.Vinit params.Ninit ]);  
+[~, Y2_PI] = ode45(@(t,y)PI(t, y, params),params.time_start:.01:params.time_end, [params.Xinit  params.Yinit params.Vinit params.Ninit ]);  
 
 params.beta = params.beta_PI + 2*params.cv*params.beta_PI; 
-[T3_PI, Y3_PI] = ode45(@(t,y)PI(t, y, params),params.time_start:.01:params.time_end, [params.Xinit  params.Yinit params.Vinit params.Ninit ]);  
-
-pause; 
+[~, Y3_PI] = ode45(@(t,y)PI(t, y, params),params.time_start:.01:params.time_end, [params.Xinit  params.Yinit params.Vinit params.Ninit ]);  
 
 params.time_end = 15; 
 params.beta = params.beta_SI;  
@@ -57,16 +51,11 @@ params.qT_SI = params.qT;
 [T_SI, Y_SI] = ode45(@(t,y)SI(t, y, params),params.time_start:.01:params.time_end, [params.Xinit  params.Yinit params.Vinit params.Ninit params.Tinit]);  
 V = log10(Y_SI(:,3));
 
-max(V)
-temp = find(V == max(V)); 
-V(temp(1) + 202) - V(temp(1)+ 303)
-pause; 
-
 params.beta = params.beta_SI - 2*params.cv*params.beta_SI; 
-[T2_SI, Y2_SI] = ode45(@(t,y)SI(t, y, params),params.time_start:.01:params.time_end, [params.Xinit  params.Yinit params.Vinit params.Ninit params.Tinit]);  
+[~, Y2_SI] = ode45(@(t,y)SI(t, y, params),params.time_start:.01:params.time_end, [params.Xinit  params.Yinit params.Vinit params.Ninit params.Tinit]);  
 
 params.beta = params.beta_SI + 2*params.cv*params.beta_SI; 
-[T3_SI, Y3_SI] = ode45(@(t,y)SI(t, y, params),params.time_start:.01:params.time_end, [params.Xinit  params.Yinit params.Vinit params.Ninit params.Tinit]);  
+[~, Y3_SI] = ode45(@(t,y)SI(t, y, params),params.time_start:.01:params.time_end, [params.Xinit  params.Yinit params.Vinit params.Ninit params.Tinit]);  
 
 
 %finding IP_js
@@ -150,7 +139,7 @@ end
     hold on; 
     plot(T_PI, log10(Y3_PI(:,3)), 'Color', colors(3,:), 'LineWidth', 2, 'LineStyle', ':');
 text(0.8,0.95,'(a)','Units', 'Normalized', 'VerticalAlignment', 'Top', 'FontSize', 16)
-ylabel('viral load (log genome copies/ml)'); title('1^° infection'); ylim([2.5,9]);
+ylabel('viral load (log genome copies/ml)'); title('1^Â° infection'); ylim([2.5,9]);
 xlabel('time since infection (days)')
 set(gca, 'FontSize', 16)
 xlim([0, 15]);
@@ -233,6 +222,6 @@ hold on;
     hold on; 
     plot(T_SI, log10(Y3_SI(:,3)), 'Color', colors(4,:), 'LineWidth', 2, 'LineStyle', ':');
 text(0.8,0.95,'(b)','Units', 'Normalized', 'VerticalAlignment', 'Top', 'FontSize', 16)
-title('2^° infection');  ylim([2.5, 9]); xlim([0, 15]);
+title('2^Â° infection');  ylim([2.5, 9]); xlim([0, 15]);
 xlabel('time since infection (days)') 
 set(gca, 'FontSize', 16)
