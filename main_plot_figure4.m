@@ -3,43 +3,61 @@ function void = main_plot_figure4(void)
 %code to plot fig. 4 in manuscript
 clear all; close all; clc;
 
-infile = 'PIP_1serotype_r_TP_DENV1_FINAL_smooth'; load(infile); 
+infile = 'figure4_infile'; load(infile);
 
-subplot(1,3,1); 
-pcolor(omega_vals, omega_vals, PIP_matrix);
+PIP_matrix = NaN*ones(length(omega_vals), length(omega_vals));
+subplot(1,3,1)
+cntr_r = 1;
+for resident_omega = omega_vals
+    cntr_i = 1;
+    for invading_omega = omega_vals
+        TP_diff = TP_primary(cntr_i) - TP_primary(cntr_r);
+        if TP_diff > 0
+            PIP_matrix(cntr_i, cntr_r) = 1;
+        else
+            PIP_matrix(cntr_i, cntr_r) = 0;
+        end
+        cntr_i = cntr_i + 1;
+    end
+    cntr_r = cntr_r + 1;
+end
+
+pcolor(omega_vals, omega_vals, PIP_matrix); 
 xlabel('\omega of resident strain'); ylabel('\omega of invading strain');
-set(gca, 'FontSize', 14); 
-opt_omega_oneSerotype = omega_vals(211)
+set(gca, 'FontSize', 14);
 text(0.9,0.95,'(a)','Units', 'Normalized', 'VerticalAlignment', 'Top', 'FontSize', 14)
 
+
+% omega value in cell 211 is the one with the highest primary infection R0
+opt_omega_oneSerotype = omega_vals(211);
+
+subplot(1,3,2)
 f_vals = 0.5:0.5:3;
-subplot(1,3,2); 
-plot(f_vals, opt_omega_oneSerotype*ones(size(f_vals)), 'b', 'LineWidth',2);
-hold on;
-plot(f_vals, opt_omega_oneSerotype*ones(size(f_vals)), 'b.', 'LineWidth',2); 
-plot(2, opt_omega_oneSerotype, 'bo'); 
+plot(f_vals, opt_omega_oneSerotype*ones(size(f_vals)), 'b', 'LineWidth', 2); hold on;
+plot(f_vals, opt_omega_oneSerotype*ones(size(f_vals)), 'b.', 'LineWidth', 2); 
+plot(2, opt_omega_oneSerotype, 'bo', 'LineWidth', 2); 
 axis([0.25 3.25 min(omega_vals) max(omega_vals)]);
 xlabel('transmission intensity f');
 ylabel('optimal \omega');
 
 opt_omega_twoSerotypes_noCrossImmunity_cells = [159 98 78 74 73 73]; 
 opt_omega_twoSerotypes_noCrossImmunity = omega_vals(opt_omega_twoSerotypes_noCrossImmunity_cells);
-plot(f_vals, opt_omega_twoSerotypes_noCrossImmunity, 'r', 'LineWidth',2); hold on;
-plot(f_vals, opt_omega_twoSerotypes_noCrossImmunity, 'r.', 'LineWidth',2);
-plot(2, opt_omega_twoSerotypes_noCrossImmunity(4), 'ro', 'LineWidth',2); 
-opt_omega_twoSerotypes_noCross_f2 = opt_omega_twoSerotypes_noCrossImmunity(4)
+plot(f_vals, opt_omega_twoSerotypes_noCrossImmunity, 'r', 'LineWidth', 2); hold on;
+plot(f_vals, opt_omega_twoSerotypes_noCrossImmunity, 'r.', 'LineWidth', 2);
+plot(2, opt_omega_twoSerotypes_noCrossImmunity(4), 'ro', 'LineWidth', 2); 
+opt_omega_twoSerotypes_noCross_f2 = opt_omega_twoSerotypes_noCrossImmunity(4);
 
 opt_omega_twoSerotypes_classicalCrossImmunity_cells = [162 101 79 74 72 71]; 
 opt_omega_twoSerotypes_classicalCrossImmunity = omega_vals(opt_omega_twoSerotypes_classicalCrossImmunity_cells);
-plot(f_vals, opt_omega_twoSerotypes_classicalCrossImmunity, 'g', 'LineWidth',2); hold on;
-plot(f_vals, opt_omega_twoSerotypes_classicalCrossImmunity, 'g.', 'LineWidth',2);
+plot(f_vals, opt_omega_twoSerotypes_classicalCrossImmunity, 'g', 'LineWidth', 2); hold on;
+plot(f_vals, opt_omega_twoSerotypes_classicalCrossImmunity, 'g.', 'LineWidth', 2);
 
 opt_omega_twoSerotypes_clinicalCrossImmunity_cells = [165 116 104 105 109 114];
 opt_omega_twoSerotypes_clinicalCrossImmunity = omega_vals(opt_omega_twoSerotypes_clinicalCrossImmunity_cells);
-plot(f_vals, opt_omega_twoSerotypes_clinicalCrossImmunity, 'm', 'LineWidth',2); hold on;
-plot(f_vals, opt_omega_twoSerotypes_clinicalCrossImmunity, 'm.', 'LineWidth',2);
+plot(f_vals, opt_omega_twoSerotypes_clinicalCrossImmunity, 'm', 'LineWidth', 2); hold on;
+plot(f_vals, opt_omega_twoSerotypes_clinicalCrossImmunity, 'm.', 'LineWidth', 2);
 text(0.9,0.95,'(b)','Units', 'Normalized', 'VerticalAlignment', 'Top', 'FontSize', 14)
-set(gca, 'FontSize', 14); 
+set(gca, 'FontSize', 14)
 
 load('params');
 
@@ -103,4 +121,3 @@ xlabel('time since infection (days)')
 ylabel('viral load (log genome copies/ml)')
 text(0.9,0.95,'(c)','Units', 'Normalized', 'VerticalAlignment', 'Top', 'FontSize', 14)
 set(gca, 'FontSize', 14); ylim([-4, 10])
-
