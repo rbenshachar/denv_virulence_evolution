@@ -3,13 +3,13 @@
 %s = serotype (1-4)
 
 if s == 1
-    [final_params, ~] = fit_DENV_viral_load(1);  
+    final_params = fit_DENV_viral_load(1);  
 elseif s == 2
-    [final_params, ~] = fit_DENV_viral_load(2);  
+    final_params = fit_DENV_viral_load(2);  
 elseif s ==3 
-    [final_params, ~] = fit_DENV_viral_load(3);  
+    final_params = fit_DENV_viral_load(3);  
 elseif s == 4
-    [final_params, ~] = fit_DENV_viral_load(4);
+    final_params = fit_DENV_viral_load(4);
 end
 
 mu = final_params(1); 
