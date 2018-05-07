@@ -42,7 +42,7 @@ CI_a_1e7 = calculate_confidence_intervals(5);
 Epidemiological simulations and pairwise invasibility code is here:
 ```
 main_generate_endemic_contexts()
-main_generate_invasion_matrix(void)
+main_generate_invasion_matrix()
 ```
 
 Code to reproduce figures in the paper:
