@@ -41,7 +41,6 @@ for j = 1:size(data, 1)
     if length(vec)>1
         IP_val(j) = IP(vec(end));
     else
-        length(vec)
         IP_val(j) = 10.94; %UB 
     end
    
